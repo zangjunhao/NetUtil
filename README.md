@@ -6,6 +6,8 @@
  	allprojects {
 	repositories {
 			...
-			maven { url 'https://jitpack.io' }
-		}
- }
+			maven { url 'https://jitpack.io' }		}}
+# 再添加
+	dependencies {
+	        compile 'com.github.zangjunhao:NetUtil:master-SNAPSHOT'
+	}
