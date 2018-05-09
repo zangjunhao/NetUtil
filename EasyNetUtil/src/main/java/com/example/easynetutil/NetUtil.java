@@ -17,7 +17,7 @@ public  class NetUtil {
     interface Callback{
         void finish(String respone);
     }
-    public void geturl(String url1)
+    public NetUtil(String url1)
     {
         this.url1=url1;
     }
