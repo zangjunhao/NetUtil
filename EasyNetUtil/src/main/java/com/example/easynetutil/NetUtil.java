@@ -14,12 +14,14 @@ import java.util.Scanner;
  */
 public  class NetUtil {
     private  String url1;//输入你自己的url
-
+    interface Callback{
+        void finish(String respone);
+    }
     public void geturl(String url1)
     {
         this.url1=url1;
     }
-    public void sendRequestWithHttpURLConnection(){
+    public void sendRequestWithHttpURLConnection(final Callback callback){
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -36,6 +38,9 @@ public  class NetUtil {
                     while (ip.hasNextLine())
                     {
                         response.append(ip.hasNextLine());
+                    }
+                    if(callback!=null){
+                        callback.finish(response.toString());
                     }
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
